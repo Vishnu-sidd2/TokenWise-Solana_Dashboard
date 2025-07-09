@@ -2,11 +2,9 @@ import React, { useState, useEffect, useCallback } from 'react';
 import './App.css';
 import axios from 'axios';
 
-// Dynamically determine backend URL based on environment or default
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8000';
 const API = `${BACKEND_URL}/api`;
 
-// Token contract address to monitor (ensure this matches your backend's TOKEN_CONTRACT)
 const TOKEN_CONTRACT = "9BB6NFEcjBCtnNLFko2FqVQBq8HHM13kCyYcdQbgpump";
 
 const App = () => {
@@ -21,7 +19,6 @@ const App = () => {
   const [protocolStats, setProtocolStats] = useState({}); // Now for selected wallet's protocol usage
   const [activeTab, setActiveTab] = useState('dashboard');
 
-  // Function to start real-time monitoring on the backend
   const startRealtimeMonitoring = async () => {
     try {
       const response = await axios.post(`${API}/realtime/start-monitoring`);
@@ -33,7 +30,6 @@ const App = () => {
     }
   };
 
-  // Function to stop real-time monitoring on the backend
   const stopRealtimeMonitoring = async () => {
     try {
       const response = await axios.post(`${API}/realtime/stop-monitoring`);

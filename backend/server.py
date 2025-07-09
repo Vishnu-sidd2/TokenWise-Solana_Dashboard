@@ -527,7 +527,7 @@ manager = WalletManager()
 @app.on_event("startup")
 async def startup_event():
     logger.info("Application starting up...")
-    await manager.load_tracked_wallets() # Load tracked wallets from DB on startup
+    await manager.load_tracked_wallets() # this will load our tracked wallets 
     await manager.start_monitoring()
 
 @app.on_event("shutdown")
